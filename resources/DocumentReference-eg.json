@@ -27,8 +27,8 @@
   "content": [
     {
       "attachment": {
+        "title": "The Attachment Title or Filename",
         "contentType": "application/pdf",
-        "title": "PDF Base64 Binary",
         "data": "dGVzdA=="
       }
     }

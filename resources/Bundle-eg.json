@@ -1,14 +1,504 @@
 {
   "resourceType": "Bundle",
-  "type": "transaction",
+  "type": "searchset",
   "entry": [
     {
       "resource": {
         "resourceType": "Patient",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": 12113
+          },
+          {
+            "use": "official",
+            "system": "https://fhir.infoway-inforoute.ca/namingsystem/ca-on-patient-hcn",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203/",
+                  "code": "JHN"
+                }
+              ]
+            },
+            "value": "2222555225",
+            "period": {
+              "end": "2021-08-11T04:00:00.000Z"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "prefix": ["Mr."],
+            "suffix": [],
+            "family": "Moranis",
+            "given": ["Jim", "Jones"]
+          }
+        ],
+        "gender": "male",
+        "address": [
+          {
+            "use": "home",
+            "line": ["3080 Yonge St."],
+            "city": "Toronto",
+            "state": "ON",
+            "postalCode": "M4N 3N1",
+            "country": "CAN"
+          }
+        ],
+        "telecom": [
+          { "system": "phone", "value": "647-555-5567", "use": "home" },
+          { "system": "phone", "value": "647-555-5566", "use": "mobile" },
+          { "system": "phone", "value": "647-555-5568", "use": "work" },
+          {
+            "system": "email",
+            "value": "testpatient@test.com",
+            "use": "home"
+          },
+          { "system": "phone", "value": "647-555-5568", "use": "work" },
+          {
+            "system": "email",
+            "value": "jim@test.com",
+            "use": "home",
+            "rank": 1
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "code": "eng"
+                }
+              ]
+            }
+          }
+        ],
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "code": "ER"
+                  }
+                ]
+              }
+            ],
+            "name": {
+              "use": "official",
+              "text": "testing next of kin"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "CareTeam",
+        "id": "15013-care-team",
+        "participant": [
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.snomed.org/",
+                    "code": "446050000"
+                  }
+                ]
+              }
+            ],
+            "member": {
+              "display": ""
+            }
+          },
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.snomed.org/",
+                    "code": "405279007"
+                  }
+                ]
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/031171",
+              "display": "Douglas Kavanagh"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "15013-pers",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18776-5"
+            }
+          ]
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "Cg=="
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "id": 3146867,
+        "patient": {},
+        "relationship": {},
         "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">PIPER, Peter (NHS: 1192335566)</div>"
+          "div": "M: Diabetes Type II"
         }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": 3146851,
+        "code": {},
+        "subject": {},
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "text": {
+          "div": "Asthma"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": 3146852,
+        "code": {},
+        "subject": {},
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ]
+        },
+        "text": {
+          "div": "Diabetes Type II"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": 3146853,
+        "code": {},
+        "subject": {},
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "resolved"
+            }
+          ]
+        },
+        "text": {
+          "div": "Appendectomy 1998"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": 3146864,
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80943009"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "160476009"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "72166-2"
+            }
+          ]
+        },
+        "text": {
+          "div": "never smoked"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": 3146865,
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80943009"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "160476009"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "44940-5"
+            }
+          ]
+        },
+        "text": {
+          "div": "1 - 2 alcoholic drinks per week"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": 3146866,
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80943009"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "160476009"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "74204-9"
+            }
+          ]
+        },
+        "text": {
+          "div": "no recreational drug use"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": 175040188471,
+        "subject": {},
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": 175040188471
+            }
+          ]
+        },
+        "dosage": [
+          {
+            "text": "20 mg 1 time daily starting Jun 13, 2023"
+          }
+        ],
+        "text": {
+          "div": "rabeprazole 20 mg 1 time daily starting Jun 13, 2023"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": 70760018660,
+        "subject": {},
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": 70760018660
+            }
+          ]
+        },
+        "dosage": [
+          {
+            "text": "650 mg every 4-6 hours, PRN starting Jun 13, 2023"
+          }
+        ],
+        "text": {
+          "div": "Tylenol 650 mg every 4-6 hours, PRN starting Jun 13, 2023"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "fd1239021aafdvgrt",
+        "code": {
+          "coding": []
+        },
+        "patient": {},
+        "text": {
+          "div": "? Amoxicillin oral-> rash"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "fd1239021aa323fdt",
+        "code": {
+          "coding": []
+        },
+        "patient": {},
+        "text": {
+          "div": "Other: contrast allergy-> rash"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": 66400002,
+        "vaccineCode": {
+          "coding": [],
+          "text": "Tetanus, Diphtheria,  Acellular Pertussis - adult [Tdap]"
+        },
+        "patient": {},
+        "occurrenceDateTime": "Apr 20, 2021",
+        "route": {
+          "coding": []
+        },
+        "text": {
+          "div": "Tetanus, Diphtheria,  Acellular Pertussis - adult [Tdap] "
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": 100003000,
+        "vaccineCode": {
+          "coding": [],
+          "text": "flu shot"
+        },
+        "patient": {},
+        "occurrenceDateTime": "Oct 1, 2022",
+        "route": {
+          "coding": []
+        },
+        "text": {
+          "div": "flu shot"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": 280900000,
+        "vaccineCode": {
+          "coding": [],
+          "text": "COVID-19 vaccine"
+        },
+        "patient": {},
+        "occurrenceDateTime": "Aug 1, 2022",
+        "route": {
+          "coding": []
+        },
+        "text": {
+          "div": "COVID-19 vaccine"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "15013-3146863",
+        "subject": {},
+        "date": "2023-06-13",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "U3RhcnQ6IHJhYmVwcmF6b2xlIDIwIG1nIDEgdGltZSBkYWlseSAKICAgICAgICBFeHRlcm5hbCBQcmVzY3JpcHRpb24KU3RhcnQ6IFR5bGVub2wgIChUYWJsZXQpIDY1MCBtZyBldmVyeSA0LTYgaG91cnMsIFBSTiBRdWFudGl0eTogMTAwIHRhYmxldHMKICAgICAgICBFeHRlcm5hbCBQcmVzY3JpcHRpb24="
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "15013-3144203",
+        "date": "2023-06-10",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "dGVzdGluZyAyIDMgNCA1IDYgNyA4IDkgMTAgMTEgMTIgMTMgMTQgMTU="
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "Attachment-Example-12321321",
+        "status": "current",
+        "subject": {
+          "reference": "Patient/12113"
+        },
+        "date": "2022-01-01T00:00:00Z",
+        "content": [
+          {
+            "attachment": {
+              "title": "The Attachment 1 Title or Filename",
+              "contentType": "application/pdf",
+              "data": "dGVzdA=="
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "Attachment-Example-22222323",
+        "status": "current",
+        "subject": {
+          "reference": "Patient/12113"
+        },
+        "date": "2022-01-01T00:00:00Z",
+        "content": [
+          {
+            "attachment": {
+              "title": "The Attachment 2 Title or Filename",
+              "contentType": "image/png",
+              "data": "dGVzdA=="
+            }
+          }
+        ]
       }
     }
   ]
