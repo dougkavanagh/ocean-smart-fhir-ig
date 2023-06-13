@@ -1,0 +1,22 @@
+{
+  "resourceType": "Observation",
+  "id": "Observation-eg-wt",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "29463-7",
+        "display": "Body weight"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/6d4e737a-b119-4a26-84af-ef6b84c7a7dd"
+  },
+  "effectiveDateTime": "2022-10-04T14:17:59+01:00",
+  "valueQuantity": {
+    "value": 50,
+    "unit": "kg"
+  }
+}

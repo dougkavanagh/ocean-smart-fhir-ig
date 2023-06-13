@@ -1,0 +1,24 @@
+{
+  "resourceType": "Observation",
+  "id": "Observation-eg-a1c",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "59261-8",
+        "display": "Hemoglobin A1c/Hemoglobin.total"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/6d4e737a-b119-4a26-84af-ef6b84c7a7dd"
+  },
+  "effectiveDateTime": "2022-10-04T14:17:59+01:00",
+  "valueQuantity": {
+    "value": 7.2,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  }
+}

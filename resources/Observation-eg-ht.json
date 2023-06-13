@@ -1,0 +1,37 @@
+{
+  "resourceType": "Observation",
+  "id": "Observation-eg-ht",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8302-2",
+        "display": "Body height"
+      }
+    ],
+    "text": "Height"
+  },
+  "subject": {
+    "reference": "Patient/123"
+  },
+  "effectiveDateTime": "2023-06-12T10:00:00Z",
+  "valueQuantity": {
+    "value": 132,
+    "unit": "cm",
+    "system": "http://unitsofmeasure.org",
+    "code": "cm"
+  }
+}

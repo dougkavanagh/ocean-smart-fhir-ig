@@ -177,7 +177,6 @@
         "resourceType": "Condition",
         "id": 3146851,
         "code": {},
-        "subject": {},
         "clinicalStatus": {
           "coding": [
             {
@@ -195,7 +194,6 @@
         "resourceType": "Condition",
         "id": 3146852,
         "code": {},
-        "subject": {},
         "clinicalStatus": {
           "coding": [
             {
@@ -213,7 +211,6 @@
         "resourceType": "Condition",
         "id": 3146853,
         "code": {},
-        "subject": {},
         "clinicalStatus": {
           "coding": [
             {
@@ -306,9 +303,52 @@
     },
     {
       "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-eg-wt",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body weight"
+            }
+          ]
+        },
+        "effectiveDateTime": "2022-10-04T14:17:59+01:00",
+        "valueQuantity": {
+          "value": 50,
+          "unit": "kg"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-eg-a1c",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59261-8",
+              "display": "Hemoglobin A1c/Hemoglobin.total"
+            }
+          ]
+        },
+        "effectiveDateTime": "2022-10-04T14:17:59+01:00",
+        "valueQuantity": {
+          "value": 7.2,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      }
+    },
+    {
+      "resource": {
         "resourceType": "MedicationStatement",
         "id": 175040188471,
-        "subject": {},
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -331,7 +371,6 @@
       "resource": {
         "resourceType": "MedicationStatement",
         "id": 70760018660,
-        "subject": {},
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -434,7 +473,6 @@
       "resource": {
         "resourceType": "DocumentReference",
         "id": "15013-3146863",
-        "subject": {},
         "date": "2023-06-13",
         "content": [
           {
