@@ -1,0 +1,39 @@
+{
+  "resourceType": "Observation",
+  "id": "Observation-eg",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "72166-2",
+        "display": "Tobacco smoking status"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/6d4e737a-b119-4a26-84af-ef6b84c7a7dd"
+  },
+  "effectiveDateTime": "2022-10-04T14:17:59+01:00",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/uv/ips/STU1/ValueSet-current-smoking-status-uv-ips.html",
+        "code": "LA18977-1",
+        "display": "Current some day smoker"
+      }
+    ],
+    "text": "Current some day smoker"
+  }
+}

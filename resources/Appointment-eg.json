@@ -1,0 +1,47 @@
+{
+  "resourceType": "Appointment",
+  "id": "Appointment-eg",
+  "meta": {
+    "profile": [
+      "http://ehealthontario.ca/fhir/StructureDefinition/ca-on-eReferral-profile-Appointment|1.0.0"
+    ]
+  },
+  "appointmentType": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+        "code": "ROUTINE",
+        "display": "Routine"
+      }
+    ]
+  },
+  "description": "Appointment",
+  "basedOn": [
+    { "reference": "ServiceRequest/29cd32f2-fc2e-43fd-92f8-567c3f5061ed" }
+  ],
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/ffb0953d-dca1-4822-bf74-a8af04e96a67"
+      },
+      "required": "required",
+      "status": "tentative"
+    },
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "LOC",
+              "display": "Clinic Location"
+            }
+          ]
+        }
+      ],
+      "actor": {
+        "reference": "Practitioner/bef2d4d1-7df8-4a5a-9b80-9131202aed78"
+      }
+    }
+  ]
+}

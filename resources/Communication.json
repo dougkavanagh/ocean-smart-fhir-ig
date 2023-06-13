@@ -1,0 +1,49 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "ce5bdb50-149d-4f0a-b5a5-dcb0ce1dc69c",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Communication",
+  "name": "Communication",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Communication",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Communication",
+  "derivation": "constraint",
+  "description": "DRAFT: Ocean POSTs a Communication resource when a chart attachment is sent via Ocean to a recipient, which is either the patient or a practitioner.",
+  "differential": {
+    "element": [
+      {
+        "id": "Communication.id",
+        "path": "Communication.id"
+      },
+      {
+        "id": "Communication.subject",
+        "path": "Communication.subject",
+        "min": 1,
+        "comment": "A reference to the Patient"
+      },
+      {
+        "id": "Communication.sender",
+        "path": "Communication.sender",
+        "min": 1
+      },
+      {
+        "id": "Communication.sent",
+        "path": "Communication.sent",
+        "min": 1
+      },
+      {
+        "id": "Communication.payload",
+        "path": "Communication.payload",
+        "min": 1
+      },
+      {
+        "id": "Communication.payload.contentReference",
+        "path": "Communication.payload.contentReference",
+        "min": 1,
+        "comment": "This refers to a DocumentReference that was originally pre-selected in the chart for inclusion in the $everything Bundle accessed by Ocean."
+      }
+    ]
+  }
+}

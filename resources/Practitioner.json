@@ -1,0 +1,68 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "4bef8e64-d1d4-4496-b49f-e7e7df46b01a",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Practitioner",
+  "name": "Practitioner",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Practitioner",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Practitioner",
+  "description": "https://build.fhir.org/ig/HL7-Canada/ca-baseline/StructureDefinition-profile-practitioner",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Practitioner",
+        "path": "Practitioner",
+        "comment": "A practicioner may have multiple identifiers, namely internal userID and  provider ID issued by the EMR, Jurisdictional billing number, and License number."
+      },
+      {
+        "id": "Practitioner.id",
+        "path": "Practitioner.id",
+        "min": 1,
+        "comment": "This ID should match the EHR's database unique ID. Ocean will use this ID for subsequent queries across other resources. Do not prefix this database ID in this field with 'Practitioner/'."
+      },
+      {
+        "id": "Practitioner.active",
+        "path": "Practitioner.active",
+        "mustSupport": true,
+        "comment": "This active value is queried as part of the Practitioner bulk loading step."
+      },
+      {
+        "id": "Practitioner.name",
+        "path": "Practitioner.name",
+        "mustSupport": true,
+        "min": 1
+      },
+      {
+        "id": "Practitioner.name.text",
+        "path": "Practitioner.name.text",
+        "mustSupport": true,
+        "min": 1,
+        "comment": "The name is used to display the provider for OAB and when confirming the patient's primary provider."
+      },
+      {
+        "id": "Practitioner.name.family",
+        "path": "Practitioner.name.family",
+        "mustSupport": true,
+        "comment": "The name.text is given preference, but if it is missing, the given and family names are concatenated to construct the text of the full name for the practitioner."
+      },
+      {
+        "id": "Practitioner.name.given",
+        "path": "Practitioner.name.given",
+        "example": [
+          {
+            "label": "Firstname",
+            "valueString": "Angela"
+          },
+          {
+            "label": "Middle name",
+            "valueString": "Margaret"
+          }
+        ]
+      }
+    ]
+  }
+}

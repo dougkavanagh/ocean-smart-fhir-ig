@@ -1,0 +1,43 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "31dab736-67b4-4daa-80a7-707e8dc5c6c8",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/CareTeam",
+  "name": "CareTeam",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CareTeam",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CareTeam",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CareTeam.subject",
+        "path": "CareTeam.subject",
+        "min": 1,
+        "comment": "Should refer to the patient of this CareTeam."
+      },
+      {
+        "id": "CareTeam.participant",
+        "path": "CareTeam.participant",
+        "min": 1
+      },
+      {
+        "id": "CareTeam.participant.id",
+        "path": "CareTeam.participant.id",
+        "definition": "Unique id for the element within a resource (for internal references).",
+        "min": 1
+      },
+      {
+        "id": "CareTeam.participant.role.coding.code",
+        "path": "CareTeam.participant.role.coding.code",
+        "code": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/practitioner-role"
+          }
+        ]
+      }
+    ]
+  }
+}

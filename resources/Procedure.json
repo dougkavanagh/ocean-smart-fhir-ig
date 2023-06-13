@@ -1,0 +1,32 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Procedure",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "description": "Procedures are an optional resource which may be returned by the $everything operation to assist with form pre-population. Implementors may also support POST operations to create a new procedure resources in the system to assist with automated profile creation while importing patients from Ocean.",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure",
+        "path": "Procedure"
+      },
+      {
+        "id": "Procedure.id",
+        "path": "Procedure.id",
+        "min": 1
+      },
+      {
+        "id": "Procedure.text",
+        "path": "Procedure.text",
+        "mustSupport": true,
+        "min": 1,
+        "definition": "The narrative text for the procedure."
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "resourceType": "Practitioner",
+  "id": "Practitioner-eg",
+  "identifier": [],
+  "active": true,
+  "name": [
+    {
+      "family": "Gable",
+      "given": ["Anne"],
+      "text": "Dr. Anne Gable - Family Practice (Primary Schedule Name)"
+    }
+  ]
+}

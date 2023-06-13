@@ -1,0 +1,70 @@
+{
+  "resourceType": "Patient",
+  "id": "ffb0953d-dca1-4822-bf74-a8af04e96a67",
+  "meta": {
+    "profile": [
+      "http://ehealthontario.ca/fhir/StructureDefinition/ca-on-eReferral-profile-Patient|1.0.0"
+    ]
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "JHN",
+            "display": "Jurisdictional health number (Canada)"
+          }
+        ]
+      },
+      "system": "https://fhir.infoway-inforoute.ca/NamingSystem/ca-on-patient-hcn",
+      "value": "1234567890"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ]
+      },
+      "system": "https://test.cognisantmd.com/svc/fhir/v1/NamingSystem/id-external-patient-reference"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "Alex Margaret Jones",
+      "family": "Jones",
+      "given": ["Alex", "Margaret"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "647-555-5567", "use": "home" },
+    { "system": "phone", "value": "647-555-5566", "use": "mobile" },
+    {
+      "system": "email",
+      "value": "testpatient@test.com",
+      "use": "home"
+    },
+    { "system": "phone", "value": "647-555-5568", "use": "work" }
+  ],
+  "gender": "male",
+  "birthDate": "1982-03-10",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "postal",
+      "line": ["40 McGlashan", "Court"],
+      "city": "North York",
+      "state": "ON",
+      "postalCode": "M5M 3N2"
+    },
+    { "use": "home", "type": "postal" }
+  ]
+}

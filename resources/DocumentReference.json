@@ -1,0 +1,138 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/DocumentReference",
+  "name": "DocumentReference",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DocumentReference",
+  "description": "The DocumentReference endpoint is used by Ocean to upload clinical and administrative notes. The resource is also returned in the integrated system's $everything operation to provide Ocean with pre-selected chart attachments. Like other resources in this project, it should extend the Canadian baseline whenever a base profile is available: https://build.fhir.org/ig/HL7-Canada/ca-baseline/StructureDefinition-profile-documentreference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.id",
+        "path": "DocumentReference.id",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "fixedCode": "current"
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "min": 0
+      },
+      {
+        "id": "DocumentReference.type.coding",
+        "path": "DocumentReference.type.coding",
+        "min": 0
+      },
+      {
+        "id": "DocumentReference.type.coding.system",
+        "path": "DocumentReference.type.coding.system",
+        "min": 0,
+        "comment": "For Ocean-generated notes: http://hl7.org/fhir/ValueSet/doc-typecodes"
+      },
+      {
+        "id": "DocumentReference.type.coding.code",
+        "path": "DocumentReference.type.coding.code",
+        "min": 1,
+        "comment": "For Ocean-generated notes: 74465-6 (Questionnaire response), 11488-4 (Consult note), 51855-5 (Patient note), 69730-0 (Instructions) or 34133-9 (Summary of episode note) are used."
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.category.coding",
+        "path": "DocumentReference.category.coding",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.category.coding.system",
+        "path": "DocumentReference.category.coding.system",
+        "min": 1,
+        "comment": "For Ocean-generated notes: http://hl7.org/fhir/ValueSet/doc-classcodes"
+      },
+      {
+        "id": "DocumentReference.category.coding.code",
+        "path": "DocumentReference.category.coding.code",
+        "min": 1,
+        "comment": "For Ocean-generated notes: 34109-9"
+      },
+      {
+        "id": "DocumentReference.category.coding.display",
+        "path": "DocumentReference.category.coding.display",
+        "min": 1,
+        "comment": "For Ocean-generated notes: 'Note"
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/baseline/StructureDefinition/Patient"
+            ],
+            "aggregation": ["referenced"]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.subject.reference",
+        "path": "DocumentReference.subject.reference",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.content",
+        "path": "DocumentReference.content",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.format",
+        "path": "DocumentReference.content.format",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment",
+        "path": "DocumentReference.content.attachment",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "min": 1,
+        "max": 1,
+        "mustSupport": true,
+        "comment": "The attachment binary data should be at most 10 MB in length; otherwise it may not be processed for performance reasons."
+      },
+      {
+        "id": "DocumentReference.content.attachment.data.contentType",
+        "path": "DocumentReference.content.attachment.data.contentType",
+        "min": 1,
+        "max": 1,
+        "definition": "Read and write support is required for 'application/pdf' and 'text/plain'"
+      }
+    ]
+  }
+}

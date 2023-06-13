@@ -1,0 +1,45 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/MedicationStatement",
+  "name": "MedicationStatement",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationStatement",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MedicationStatement",
+  "description": "https://build.fhir.org/ig/HL7-Canada/ca-baseline/StructureDefinition-profile-medicationstatement",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MedicationStatement.text",
+        "path": "MedicationStatement.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.status",
+        "path": "MedicationStatement.status",
+        "comment": "If the status is provided and is anything other than 'active', the medication will be excluded from the patient's summarized active medication list."
+      },
+      {
+        "id": "MedicationStatement.effectivePeriod",
+        "path": "MedicationStatement.effectivePeriod",
+        "comment": "If an effectivePeriod is provided with an end date prior to the time of patient processing within Ocean, the medication will be considered no longer active and will be excluded from the patient's summarized active medication list.",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.text",
+        "path": "MedicationStatement.dosage.text",
+        "mustSupport": true
+      },
+      {
+        "id": "MedicationStatement.dosage.patientInstruction",
+        "path": "MedicationStatement.dosage.patientInstruction",
+        "comment": "PSS: Label Instruction. Note: this is also part of text. Note, with meals\", \"may cause drowsiness are included here but FHIR shows under additional instructions.\r\n\r\nNote that FHIR strings SHALL NOT exceed 1MB in size",
+        "mustSupport": true
+      }
+    ]
+  }
+}

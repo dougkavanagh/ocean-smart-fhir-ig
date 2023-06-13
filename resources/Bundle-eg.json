@@ -1,0 +1,15 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">PIPER, Peter (NHS: 1192335566)</div>"
+        }
+      }
+    }
+  ]
+}

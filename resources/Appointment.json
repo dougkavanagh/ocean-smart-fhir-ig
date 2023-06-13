@@ -1,0 +1,154 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "be5bdb50-149d-4f0a-b4a4-dcb0ce1dc69d",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Appointment",
+  "name": "Appointment",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Appointment",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Appointment",
+  "derivation": "constraint",
+  "description": "Used for online booking, schedule synchronization, kiosks and reminders.",
+  "differential": {
+    "element": [
+      {
+        "id": "Appointment.id",
+        "path": "Appointment.id",
+        "min": 1
+      },
+      {
+        "id": "Appointment.description",
+        "path": "Appointment.description",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.start",
+        "path": "Appointment.start",
+        "min": 1
+      },
+      {
+        "id": "Appointment.end",
+        "path": "Appointment.end",
+        "min": 1
+      },
+      {
+        "id": "Appointment.minutesDuration",
+        "path": "Appointment.minutesDuration",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.created",
+        "path": "Appointment.created",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.comment",
+        "path": "Appointment.comment",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.slot",
+        "path": "Appointment.slot",
+        "mustSupport": true,
+        "comment": "For online booking, if available, this will be a reference to the 'Slot/{ID} of the Slot that was selected, as originally provided by the Slot FHIR query. The Slot may be used to identify the matching Schedule.",
+        "min": 0,
+        "max": 1
+      },
+      {
+        "id": "Appointment.patientInstruction",
+        "path": "Appointment.patientInstruction",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.status",
+        "path": "Appointment.status",
+        "comment": "The status is used to filter out 'cancelled' and 'entered-in-error' appointments during OAB. It is also used as part of a PUT update to change the status to 'booked', only when the appointment status is 'pending', when an appointment is confirmed via an Ocean Reminder. It is set to 'arrived' when the patient checks in via the Ocean kiosk.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.appointmentType",
+        "path": "Appointment.appointmentType",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://terminology.hl7.org/ValueSet/v2-0276"
+        }
+      },
+      {
+        "id": "Appointment.appointmentType.coding",
+        "path": "Appointment.appointmentType.coding",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.appointmentType.coding.system",
+        "path": "Appointment.appointmentType.coding.system",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.appointmentType.coding.code",
+        "path": "Appointment.appointmentType.coding.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.appointmentType.coding.display",
+        "path": "Appointment.appointmentType.coding.display",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.participant.actor",
+        "path": "Appointment.participant.actor",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/baseline/StructureDefinition/Practitioner",
+              "http://hl7.org/fhir/ca/baseline/StructureDefinition/Patient"
+            ],
+            "aggregation": ["referenced"]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.participant.status",
+        "path": "Appointment.participant.status",
+        "comment": "",
+        "mustSupport": true,
+      },
+      {
+        "id": "Appointment.participant.type",
+        "path": "Appointment.participant.type",
+        "comment": "Use PPRF for the primary practitioner and PART for the patient. For secondary clinicians and assistants, consider using SPRF.",
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.participant.actor.reference",
+        "path": "Appointment.participant.actor.reference",
+        "min": 1
+      },
+      {
+        "id": "Appointment.participant.actor.display",
+        "path": "Appointment.participant.actor.display",
+        "comment": "For practitioners, this should reflect the provider name as it ought to be displayed to the patient (e.g. 'Dr. Jane Jones').",
+        "min": 1
+      },
+      {
+        "id": "Appointment.type",
+        "path": "Appointment.type",
+        "comment": "Textual representation of the appointment type as defined in the ValueSet/appointment-type",
+        "min": 0,
+        "max": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Appointment.type.text",
+        "path": "Appointment.type.text",
+        "mustSupport": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Consent",
+  "name": "Consent",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Consent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Consent",
+  "description": "http://hl7.org/fhir/ca/baseline/StructureDefinition/Consent",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Consent.id",
+        "path": "Consent.id"
+      },
+      {
+        "id": "Consent.patient",
+        "path": "Consent.patient",
+        "min": 1
+      },
+      {
+        "id": "Consent.patient.id",
+        "path": "Consent.patient.id",
+        "max": "0"
+      },
+      {
+        "id": "Consent.patient.reference",
+        "path": "Consent.patient.reference",
+        "min": 1
+      },
+      {
+        "id": "Consent.status",
+        "path": "Consent.status",
+        "definition": "For consent update, the status will be 'active'.",
+        "min": 1
+      },
+      {
+        "id": "Consent.dateTime",
+        "path": "Consent.dateTime",
+        "min": 1
+      },
+      {
+        "id": "policy",
+        "path": "Consent.policy",
+        "min": 1
+      },
+      {
+        "id": "Consent.policy.authority",
+        "path": "Consent.authority",
+        "definition": "For consent updates, this will be the url of the Ocean site recording the consent.",
+        "min": 1
+      },
+      {
+        "id": "Consent.policy.uri",
+        "path": "Consent.policy.uri",
+        "definition": "For consent updates, this will be the url of the Ocean site's form recording the consent.",
+        "min": 1
+      },
+      {
+        "id": "Consent.source",
+        "path": "Consent.source",
+        "min": 1
+      },
+      {
+        "id": "Consent.peformer",
+        "path": "Consent.performer",
+        "definition": "For consent updates based on Ocean questionnaires, this will be a Patient/reference.",
+        "min": 1
+      },
+      {
+        "id": "Consent.source.sourceReference",
+        "path": "Consent.source.sourceReference",
+        "definition": "For consent updates, this will be a reference to the DocumentReference containing the form's note recording the consent.",
+        "min": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "a8c9000d-e1be-4405-b205-e67793782df4",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/OperationDefinition/Patient-everything",
+  "version": "1.0.0",
+  "name": "Patient/$everything",
+  "baseDefinition": "http://hl7.org/fhir/OperationDefinition/Patient-everything",
+  "title": "Fetch Entire Patient Record for Ocean via Patient/$everything",
+  "status": "active",
+  "kind": "operation",
+  "description": "This operation is used to return all the information related to a patient that may be required for a variety of use cases related to Ocean, including eReferrals and secure messaging.",
+  "comment": "The server should return the result as a single bundle (rather than using paging). Although the server is responsible for determining what resources to return as included resources, at a minimum it should include: the Patient; the patient's primary provider; the cumulative patient profile information such as the medication list (MedicationStatement) and allergies (AllergyIntolerance); and any pre-selected chart attachments (DocumentReference). Other resources used by Ocean are listed here and may or may not be useful depending on the desired use cases for Ocean.",
+  "affectsState": false,
+  "code": "everything",
+  "resource": ["Patient"],
+  "system": false,
+  "type": false,
+  "instance": true,
+  "parameter": [
+    {
+      "name": "start",
+      "use": "in",
+      "min": 0,
+      "max": 0,
+      "documentation": "A start date is NOT provided, since some records may pre-date any given start date yet still be relevant to the patient's care. For example, an AllergyIntolerance record from 5 years ago should be included in any case. Nonetheless, the server may choose to omit any encounter-based records that are older than a certain date when they are no longer clinically relevant, such as Observation more than 3 years old, depending on desired performance constraints..",
+      "type": "date"
+    },
+    {
+      "name": "end",
+      "use": "in",
+      "min": 0,
+      "max": 0,
+      "documentation": "An end date is not used.",
+      "type": "date"
+    },
+    {
+      "name": "_since",
+      "use": "in",
+      "min": 0,
+      "max": 0,
+      "documentation": "The _since parameter is not used by Ocean.",
+      "type": "instant"
+    },
+    {
+      "name": "_type",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Ocean will specify the following list of types, and may request more in the future as this specification. It is up to the implementor to decide which resources to return based on this cue. However, all of the following are plausibly useful for Ocean's use cases. Depending on the context for the Ocean use case, either a partial set of resources (e.g., Appointment, CareTeam) or a full set is requested. The parameters are passed as follows: .../$everything?_type=AllergyIntolerance,Appointment,CareTeam,Condition,Consent,DocumentReference,Immunization,MedicationStatement,Observation,Patient,Practitioner,Procedure,QuestionnaireResponse .",
+      "type": "code"
+    },
+    {
+      "name": "_count",
+      "use": "in",
+      "min": 0,
+      "max": 0,
+      "documentation": "Paging is not used by Ocean.",
+      "type": "integer"
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": 1,
+      "documentation": "The bundle type is \"searchset\"",
+      "type": "Bundle"
+    }
+  ]
+}

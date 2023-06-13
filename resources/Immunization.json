@@ -1,0 +1,45 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Immunization",
+  "name": "Immunization",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Immunization",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Immunization",
+  "description": "https://build.fhir.org/ig/HL7-Canada/ca-baseline/StructureDefinition-profile-immunization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Immunization.id",
+        "path": "Immunization.id",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.status",
+        "path": "Immunization.status"
+      },
+      {
+        "id": "Immunization.patient",
+        "path": "Immunization.patient",
+        "mustSupport": true
+      },
+      {
+        "id": "Immunization.lotNumber",
+        "path": "Immunization.lotNumber"
+      },
+      {
+        "id": "Immunization.site",
+        "path": "Immunization.site"
+      },
+      {
+        "id": "Immunization.text",
+        "path": "Immunization.text",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

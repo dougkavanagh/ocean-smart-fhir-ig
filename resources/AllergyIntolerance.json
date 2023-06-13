@@ -1,0 +1,63 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "fd2c6fb3-59ec-4b5e-9fc7-0fbecf5cae60",
+  "url": "https://ocean.cognisantmd.com/fhir/StructureDefinition/AllergyIntolerance",
+  "name": "AllergyIntolerance",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AllergyIntolerance",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance",
+  "description": "https://build.fhir.org/ig/HL7-Canada/ca-baseline/StructureDefinition-profile-allergyintolerance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "AllergyIntolerance.text",
+        "path": "AllergyIntolerance.text",
+        "comment": "This simple textual representation is used to build the textual summary of allergies/intolerances to prepopulate the corresponding field on a referral form via the @ptCpp.allg keyword.",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.code:absentOrUnknownAllergy",
+        "path": "AllergyIntolerance.code",
+        "sliceName": "absentOrUnknownAllergy",
+        "short": "Code for absent or unknown allergy",
+        "definition": "Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This describes a categorical negated statement (e.g., \"No known allergy\").",
+        "comment": "Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination.",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "description": "negation/exclusion codes for reporting no known allergies or not available data.",
+          "valueSet": "http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-allergies-uv-ips"
+        }
+      },
+      {
+        "id": "AllergyIntolerance.patient",
+        "path": "AllergyIntolerance.patient",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/baseline/StructureDefinition/Patient"
+            ],
+            "aggregation": ["referenced"]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "AllergyIntolerance.clinicalStatus",
+        "path": "AllergyIntolerance.clinicalStatus",
+        "min": 1,
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/allergyintolerance-clinical"
+        }
+      }
+    ]
+  }
+}

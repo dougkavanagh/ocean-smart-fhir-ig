@@ -1,0 +1,93 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://cloudconnect.cognisantmd.com/fhir/StructureDefinition/Observation",
+  "name": "Observation",
+  "status": "draft",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "description": "Observations are used to upload vitals and lab values to Ocean for form pre-population. They are also uploaded by Ocean based on form submissions of specific tagged fields. Note: these constraints extend the Canadian Baseline profile as a baseDefinition but avoid using it directly, due to a broken link in the Canadian registry.",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "short": "registered | preliminary | final | corrected | cancelled",
+        "comment": "Ocean will submit the status as 'final' for its own form-generated observations."
+      },
+      {
+        "id": "Observation.category",
+        "path": "Observation.category",
+        "definition": "Ocean uses system http://terminology.hl7.org/CodeSystem/observation-category code 'survey' display 'Survey' for its own form-generated observations.",
+        "max": "1"
+      },
+      {
+        "id": "Observation.issued",
+        "path": "Observation.issued",
+        "definition": "Ocean submits the current date/time when it uploads its own form-generated observations.",
+        "max": "1"
+      },
+      {
+        "id": "Observation.method",
+        "path": "Observation.method",
+        "definition": "Ocean submits the method coding as system 'http://snomed.info/sct', coding 1156040003, 'Self reported' for its own form-generated observations."
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "min": 1,
+        "definition": "The observation code is the configurable 'key' value of the observation. Check the Observation doc file in this project for examples of specially-designated Observation codes for smoking and alcohol status."
+      },
+      {
+        "id": "Observation.code.coding",
+        "path": "Observation.code.coding",
+        "min": 1
+      },
+      {
+        "id": "Observation.code.coding.system",
+        "path": "Observation.code.coding.system",
+        "definition": "Whenever possible, LOINC codes should be used: http://loinc.org - e.g., 72166-2 for Tobacco smoking status, 63640-7 for cigarettes per day, 74013-4 for alcoholic drinks per day.",
+        "min": 1
+      },
+      {
+        "id": "Observation.code.coding.code",
+        "path": "Observation.code.coding.code",
+        "definition": "The LOINC code value (or alternate code value). This code value will match the Ocean site's configured 'EMR Field' key for any form-generated values. For example, a 'PHQ-9" code value will be used if this field is configured for a form generating the @PHQ-9 answer. See this article for details: https://support.cognisantmd.com/hc/en-us/articles/115001679932-EMR-Field-Mapping",
+        "min": 1
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "definition": "The patient associated with the observation (e.g., reference Patient/123, where 123 is the patient ID).",
+        "requirements": "Must be present",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/ca/baseline/StructureDefinition/Patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "max": "1",
+        "min": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

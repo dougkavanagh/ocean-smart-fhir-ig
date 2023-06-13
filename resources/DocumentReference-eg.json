@@ -1,0 +1,36 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "DocumentReference Example",
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/doc-typecodes",
+        "code": "74465-6",
+        "display": "Questionnaire response Document"
+      }
+    ]
+  },
+  "category": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/ValueSet/doc-classcodes",
+        "code": "34109-9",
+        "display": "Note"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/456"
+  },
+  "date": "2022-01-01T00:00:00Z",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "title": "PDF Base64 Binary",
+        "data": "dGVzdA=="
+      }
+    }
+  ]
+}
