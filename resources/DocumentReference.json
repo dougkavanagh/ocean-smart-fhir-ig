@@ -16,7 +16,7 @@
         "id": "DocumentReference.id",
         "path": "DocumentReference.id",
         "min": 1,
-        "max": 1
+        "max": "1"
       },
       {
         "id": "DocumentReference.status",
@@ -76,11 +76,6 @@
       {
         "id": "DocumentReference.subject",
         "path": "DocumentReference.subject",
-        "min": 1
-      },
-      {
-        "id": "DocumentReference.subject",
-        "path": "DocumentReference.subject",
         "type": [
           {
             "code": "Reference",
@@ -116,21 +111,28 @@
         "id": "DocumentReference.content.attachment",
         "path": "DocumentReference.content.attachment",
         "min": 1,
-        "max": 1
+        "max": "1"
+      },
+      {
+        "id": "DocumentReference.content.attachment.title",
+        "path": "DocumentReference.content.attachment.title",
+        "min": 1,
+        "max": "1",
+        "definition": "The file name for the attachment, with a mandatory supported file extension. Valid extensions include but may not be limited to: 'jpg', 'jpeg', 'png', 'tiff', 'tif', 'bmp', 'mp3', 'mp4', 'txt', 'pdf', 'mov', 'avi'"
       },
       {
         "id": "DocumentReference.content.attachment.data",
         "path": "DocumentReference.content.attachment.data",
         "min": 1,
-        "max": 1,
+        "max": "1",
         "mustSupport": true,
-        "comment": "The attachment binary data should be at most 10 MB in length; otherwise it may not be processed for performance reasons."
+        "definition": "The attachment binary data should be at most 10 MB in length; otherwise it may not be processed for performance reasons."
       },
       {
         "id": "DocumentReference.content.attachment.data.contentType",
         "path": "DocumentReference.content.attachment.data.contentType",
         "min": 1,
-        "max": 1,
+        "max": "1",
         "definition": "Read and write support is required for 'application/pdf' and 'text/plain'"
       }
     ]
